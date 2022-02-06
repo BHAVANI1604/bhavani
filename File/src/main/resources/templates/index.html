@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+	
+			
+		
+	
+	$(document).ready(function() {
+		getAllInfo();
+				
+		$("#savebtn").click(function() {
+			var jsonFile = {};
+			jsonPen.file = $('#addfile').val();
+			jsonPen.upload = $('#addupload').val();
+			var FileObj = JSON.stringify(jsonPen);
+			alert(PenObj);		
+			$.ajax({
+				url : "http://localhost:1234/update",
+				method : "POST",
+				data : FileObj,
+				contentType : "application/json",
+				success : function(data) {
+					alert(data);
+					getAllInfo();
+					hideDivSection();
+				},
+				error : function(err) {
+					alert("save error");
+				}
+		});
+	});
+		
+	function hideDivSection(){
+		document.getElementById("addcity").value = "";
+		document.getElementById("addspecial").value = "";
+		document.getElementById("adddiv").hidden = true;
+		document.getElementById("addbtn").hidden = false;
+	}
+		
+		$("#cancelbtn").click(function() {
+			document.getElementById("addcity").value = " ";
+			document.getElementById("addspecial").value = " ";
+			document.getElementById("adddiv").hidden = true;
+			document.getElementById("addbtn").hidden = false;
+		});
+});	
+
+
+</script>
+</head>
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
+<body><center>
+<h1 style="background-color:Orange;">STUDENTS FILES </h1>
+	<div>
+		<table id="tablepen" border="1">
+			s
+		</table>
+		
+	</div>
+	<div id="adddiv">
+		<h3 style="color:Tomato;"> File name  : <input type="text" id="addfiles"> <br> <br>
+		 <h3 style="color:MediumSeaGreen;">Upload : <input type="text" id="addupload"></h3> <br> <br>
+		<input type="button" id="savebtn" value="Save"> <input
+			type="button" id="cancelbtn" value="Cancel">
+	</div>
+</style>
+</body></center>
+</html>

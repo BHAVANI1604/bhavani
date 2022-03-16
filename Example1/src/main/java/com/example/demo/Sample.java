@@ -14,6 +14,11 @@ public class Sample {
 		int c=a+b;
 		return c;
 	}
+	@RequestMapping(value="/print")
+ String name() {
+	 String a="hello world";
+	 return a;
+ }
 	
 
 }

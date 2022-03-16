@@ -13,7 +13,8 @@ public interface ProductRepo extends JpaRepository<ProductModel, Integer> {
 	@Query(value="SELECT * FROM product WHERE Name LIKE %:name%",nativeQuery = true)
 		public List<ProductModel>getByName(@Param("name")String name);
 		
-		
+	@Query(value="select id,name from product",nativeQuery = true)	
+	public List<Object> getInfo();
 		
 	}
 	

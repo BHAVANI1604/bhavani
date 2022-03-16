@@ -1,5 +1,6 @@
 package com.products.demo.dao;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +34,15 @@ ProductRepo productRepo;
 	public void productDelete(Integer id) {
 		
 		 productRepo.deleteById(id);
+	}
+	public List<ProductModel> getName(String name) {
+		List<ProductModel>li=productRepo.getByName(name) ;
+		return li;
+
+	}
+	public List<Object> getInfo() {
+		List<Object>li=productRepo.getInfo();
+		return li;
 	}
 
 

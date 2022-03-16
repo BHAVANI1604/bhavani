@@ -26,5 +26,10 @@ public class Sample123 {
 		int f=a+b+c+d+e;
 		return f;
 	}
+	@RequestMapping(value="/print")
+	 String name() {
+		 String a="hello world";
+		 return a;
+	 }
 
 }

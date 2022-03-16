@@ -37,4 +37,14 @@ ProductDao productDao;
 		 productDao.productDelete(id);
 	}
 
+	public List<ProductModel> getName(String name) {
+		
+		return productDao.getName(name);
+	}
+
+	public List<Object> getInfo() {
+		
+		return productDao.getInfo();
+	}
+
 }
